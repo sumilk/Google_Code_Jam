@@ -12,9 +12,7 @@ def generate_output(printers):
     elif sum == TOTAL_INK_REQUIRED:
         return ' '.join([str(C), str(M), str(Y), str(K)])
     else:
-        diff = sum - TOTAL_INK_REQUIRED
-        clr_lst = [C , M, Y, K]
-        ratio = [x/max(clr_lst) for x in clr_lst]
+        #diff = sum - TOTAL_INK_REQUIRED
         C = int(C / sum * TOTAL_INK_REQUIRED)
         M = int(M / sum * TOTAL_INK_REQUIRED)
         Y = int(Y / sum * TOTAL_INK_REQUIRED)
