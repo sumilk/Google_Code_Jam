@@ -13,13 +13,19 @@ def generate_output(printers):
         return ' '.join([str(C), str(M), str(Y), str(K)])
     else:
         diff = sum - TOTAL_INK_REQUIRED
-        while diff > 0:
-            C = max(C -diff//4,0)
-            M = max(M - diff//4,0)
-            Y = max(Y - diff//4,0)
-            K = max(TOTAL_INK_REQUIRED - (C+M+Y),0)
-            sum = C+M+Y+K
-            diff = sum - TOTAL_INK_REQUIRED
+        clr_lst = [C , M, Y, K]
+        ratio = [x/max(clr_lst) for x in clr_lst]
+        C = int(C / sum * TOTAL_INK_REQUIRED)
+        M = int(M / sum * TOTAL_INK_REQUIRED)
+        Y = int(Y / sum * TOTAL_INK_REQUIRED)
+        K = TOTAL_INK_REQUIRED - (C + M + Y)
+        # while diff > 0:
+        #     C = max(C -diff//4,0)
+        #     M = max(M - diff//4,0)
+        #     Y = max(Y - diff//4,0)
+        #     K = max(TOTAL_INK_REQUIRED - (C+M+Y),0)
+        #     sum = C+M+Y+K
+        #     diff = sum - TOTAL_INK_REQUIRED
         return ' '.join([str(int(C)), str(int(M)), str(int(Y)), str(int(K))])
 
 
